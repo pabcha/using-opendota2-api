@@ -1,0 +1,84 @@
+<app-filter-hero (filterEntered)="applyFilter($event)"></app-filter-hero>
+
+<div class="loading-shade" *ngIf="isLoadingResults">
+  <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+</div>
+
+<mat-table [dataSource]="dataSource" matSort>
+  <!-- Icon Column -->
+  <ng-container matColumnDef="icon">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <img [src]="element.icon | toApiSrc">
+    </mat-cell>
+  </ng-container>
+
+  <!-- Hero Name Column -->
+  <ng-container matColumnDef="localized_name">
+    <mat-header-cell *matHeaderCellDef> Hero </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.localized_name }} </mat-cell>
+  </ng-container>
+
+  <!-- Armor Column -->
+  <ng-container matColumnDef="base_armor">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Armor </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.base_armor }} </mat-cell>
+  </ng-container>
+
+  <!-- Primary Attr Column -->
+  <ng-container matColumnDef="primary_attr">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Attr </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.primary_attr }} </mat-cell>
+  </ng-container>
+
+  <!-- BaseStr Column -->
+  <ng-container matColumnDef="base_str">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Str </mat-header-cell>
+    <mat-cell *matCellDef="let element" class="padding-cell"> {{ element.base_str }} </mat-cell>
+  </ng-container>
+
+  <!-- BaseAgi Column -->
+  <ng-container matColumnDef="base_agi">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Agi </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.base_agi }} </mat-cell>
+  </ng-container>
+
+  <!-- Armor Column -->
+  <ng-container matColumnDef="base_int">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Int </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.base_int }} </mat-cell>
+  </ng-container>
+
+  <!-- Attack Max Column -->
+  <ng-container matColumnDef="base_attack_max">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Attack Max </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.base_attack_max }} </mat-cell>
+  </ng-container>
+
+  <!-- Attack Speed/Rate Column -->
+  <ng-container matColumnDef="attack_rate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Attack Speed </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.attack_rate }}</mat-cell>
+  </ng-container>
+
+  <!-- Attack Range Column -->
+  <ng-container matColumnDef="attack_range">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Attack Range </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.attack_range }}</mat-cell>
+  </ng-container>
+
+  <!-- Move Speed Column -->
+  <ng-container matColumnDef="move_speed">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Move Speed </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.move_speed }}</mat-cell>
+  </ng-container>
+
+  <!-- Base Health Column -->
+  <ng-container matColumnDef="base_health_regen">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Health Regen </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.base_health_regen }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

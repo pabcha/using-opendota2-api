@@ -1,0 +1,32 @@
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+  min-height: 500px;
+}
+
+.form-filter-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.padding-cell {
+  padding-left: 0.4rem;
+}
+
+.loading-shade {
+  position: absolute;
+  top: 89px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
